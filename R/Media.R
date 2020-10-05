@@ -3,7 +3,7 @@
 
 # ______________________________ Import ______________________________ #
 
-data <- read_excel('./input/Input 09032020.xlsx', sheet = 'Data_072020', guess_max = 17000)
+data <- read_excel(input, sheet = mysheet, guess_max = 17000)
 
 data$Media_Type<- tolower(data$Media_Type)
 data<- data[!str_detect(data$Media_Type, "effluent|groundwater|ground|sediment"),]
@@ -167,7 +167,7 @@ individual.exposures <- function(z){
   
   get.distributions <- function(x,n){
     
-    set.seed(as.numeric(read_excel('./input/Input 09032020.xlsx', sheet = 'Seed')))
+    set.seed(as.numeric(read_excel(input, sheet = 'Seed')))
     
     concentration <- data.frame(rlnorm(n, log(x$GM_WM), abs(log(x$GM_WSD))))
     names(concentration)<- x[,1]

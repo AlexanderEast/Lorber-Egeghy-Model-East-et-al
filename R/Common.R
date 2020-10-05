@@ -49,15 +49,10 @@ Simple.Dose.PK <- function(CP,kP,Vd){
 # Vd = volume distribution (mL/kg bw)
 # kP = elimination rate (day -1)
 
-# Test
-WM(1:5,2:6)
-WSD(1:5,0:4,2:6)
-Simple.Serum.PK(5,.0008,170)
-Simple.Dose.PK(10,.00039,200)
 
 get.people <- function(){
   
-  exposurefactors <- read_excel('./input/Input 09032020.xlsx', sheet = 'Exposure Factors')
+  exposurefactors <- read_excel(input, sheet = 'Exposure Factors')
   individuals<- split(exposurefactors, rownames(exposurefactors))
   names(individuals)<-exposurefactors$Individual
   

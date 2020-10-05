@@ -1,7 +1,7 @@
 # EFSA Food Intake to Lorber-Egeghy Model Intake Estimation
 # AE, ORAU, 2020.
 
-dietary <- read_excel('./input/Input 09032020.xlsx', sheet = 'EFSA Food', guess_max = 17000)
+dietary <- read_excel(input, sheet = 'EFSA Food', guess_max = 17000)
 
 individuals<-get.people()
 
@@ -18,7 +18,7 @@ agefood<- dietary[(EF.Dietgroup %in% dietary$`Age class`),]
 agefood<-split(agefood,agefood$Chemical)
 
 food.distribution <- function(y){
-set.seed(as.numeric(read_excel('./input/Input 09032020.xlsx', sheet = 'Seed')))
+set.seed(as.numeric(read_excel(input, sheet = 'Seed')))
 y$Min <- 0
 y$SD  <- y$`Lower Bound 95th Exposure` - y$Min/4
 y$GM  <- y$`Lower Bound Mean Exposure`/ (1+ .05 * (y$SD/y$`Lower Bound Mean Exposure`)^2)

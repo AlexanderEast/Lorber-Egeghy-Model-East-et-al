@@ -1,13 +1,20 @@
 # PFOA / PFOS Aggregate Route Exposure Model
 # AE, ORAU, 2020.
 
-# ______________________________  Source & Tidy  ______________________________ #
 
-rm(list=ls())
+
+
+
+
+LEM.run<-function(){
+# ______________________________  Source, Name, & Tidy  ______________________________ #
+
+input <<- "./input/Input 10052020.xlsx"
+mysheet <<- "Data 10052020"
 source('./R/Packages.R')
 source('./R/Common.R')
-source('./R/Media.R')
 source('./R/Food.R')
+suppressWarnings(source('./R/Media.R'))
 
 exposure.distributions<<- Map(c,exposures,foodexposures)
 
@@ -135,7 +142,7 @@ wt <- x$`Bodyweight (kg)`
 
 agemedians <- medians[(str_detect(individual,medians$Group)),]
 
-dosefactors <- read_excel('./input/Input 09032020.xlsx', sheet = 'Dose Factors', guess_max = 17000)
+dosefactors <- read_excel(input, sheet = 'Dose Factors', guess_max = 17000)
 
 
 dosefactors$SDF<- dosefactors$`Vd (Volume Distribution, ml/kg bw)`*
@@ -179,13 +186,15 @@ if (time > 1159){
 key<- str_c(date," ",time)
 
 
-filename <- str_c("PFOA PFOS Intake Results ",key,".xlsx")
+filename <- str_c("./output/PFOA PFOS Intake Results ",key,".xlsx")
 
 
 export(results,filename)
+
+return(results)
+}
+
+
+
+results<- LEM.run()
 rm(list=setdiff(ls(), c("results")))
-
-
-
-
-
