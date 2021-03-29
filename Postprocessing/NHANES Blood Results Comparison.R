@@ -158,3 +158,24 @@ ecdf(ADULTSPFOA$Concentration)(4.015835127)
 ecdf(ADULTSPFOA$Concentration[ADULTSPFOA$Concentration > 0])(4.015835127)
 # CHILDREN PFOA WITHOUT NON-DETECTS 
 ecdf(ADULTSPFOA$Concentration[CHILDRENPFOA$Concentration > 0])(7.4698654)
+
+
+# Medians of 2013-2014 data
+median(CHILDRENPFOA$Concentration)
+median(CHILDRENPFOS$Concentration)
+median(ADULTSPFOA$Concentration)
+median(ADULTSPFOS$Concentration)
+
+# CHILDREN PFOA WITHOUT NON-DETECTS 
+
+
+library(nhanesA)
+PFAS  <- nhanes('L24PFC_C')
+DEMO  <- nhanes('DEMO_C')       
+
+data <- merge(PFAS,DEMO, by = 'SEQN')
+data <- data[c("SEQN","LBXPFOA","LBXPFOS","RIDAGEYR")]
+data <- data[(data$RIDAGEYR > 18),]
+
+summary(data$LBXPFOA)
+summary(data$LBXPFOS)       

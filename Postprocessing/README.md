@@ -5,7 +5,7 @@ Contains scripts which generate figures from the PFOA PFOS Model output, compare
 File Descriptions:
   20132014 NHANES PFAS Serum Data: Input data for results comparison.
   PFOA PFOS Intake Results 20210325 751PM: Output from Lorber Egeghy Model.
-  2021 NHANES Blood Results Comparison: Imports NHANES Blood data and compares to aggregate route median from model output.      
+  NHANES Blood Results Comparison: Imports 2003-2004, 2013-2014 NHANES Blood data and compares to aggregate route median from model output       
   PFOA Dynamic Model and Sensitivity Analysis: Plots steady state and dynamic model for PFOA serum concentration (children and adults).
   PFOS Dynamic Model and Sensitivity Analysis: Plots steady state and dynamic model for PFOS serum concentration (children and adults).
 
