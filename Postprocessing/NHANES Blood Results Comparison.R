@@ -166,8 +166,8 @@ median(CHILDRENPFOS$Concentration)
 median(ADULTSPFOA$Concentration)
 median(ADULTSPFOS$Concentration)
 
-# CHILDREN PFOA WITHOUT NON-DETECTS 
 
+# Medians of 2003-2004 data
 
 library(nhanesA)
 PFAS  <- nhanes('L24PFC_C')

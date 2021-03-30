@@ -74,7 +74,7 @@ ggplot(data, aes(x=time, y=CP, color=Vd))+
   geom_hline(aes(yintercept = medss) ,color = "Black",size = mysize)+
   geom_hline(aes(yintercept = lowss) ,color = "Blue",size = mysize)+ 
   theme_bw()+
-  labs(title = "Dynamic Model and Steady State Comparisons for Varying PFOS Volume Distributions Among Adults",
+  labs(title = "Dynamic Model and Steady State Comparisons for Varying PFOA Volume Distributions Among Adults",
        x= "Time (years)",
        y= "Serum concentration (ng/ml)")+
   scale_x_continuous(expand = c(0, 0), breaks = 1:21, lim = c(0, 21))+
